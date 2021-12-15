@@ -2,7 +2,7 @@
 
 #main .scene { width: 400px; height: 400px; -webkit-perspective: 1000px; perspective: 1000px; }
 
-#main .scene .cube { width: 100%; height: 100%; position: relative; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; }
+#main .scene .cube { width: 100%; height: 100%; position: relative; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; -webkit-transform: translateZ(-200px); transform: translateZ(-200px); }
 
 #main .scene .cube .face { position: absolute; width: 100%; height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; color: #fff; font-size: 24px; font-weight: 700; }
 

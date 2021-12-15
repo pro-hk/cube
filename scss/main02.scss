@@ -28,7 +28,6 @@
         color: #fff;
         font-size: 36px;
         font-weight: 700;
-        opacity: 0.5;
         &:nth-child(10n+1){transform: rotateY(0) translateZ(2240px); background-color: #f00;}
         &:nth-child(10n+2){transform: rotateY(360 / 12 * 1deg) translateZ(2240px);background-color: #ff0;}
         &:nth-child(10n+3){transform: rotateY(360 / 12 * 2deg) translateZ(2240px);background-color: #0f0;}
@@ -44,27 +43,17 @@
   }
   .pagination{
     position: absolute;
-    bottom:50px;
+    bottom: 50px;
     width: 100%;
-    ul{
-      display: flex;
-      justify-content: center;
-      li{
-        width: 30px;
-        height: 30px;
-        border: 2px solid #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #fff;
-        margin: 0 2px;
-        cursor: pointer;
-        transition: 0.25s;
-        &.on{
-          background-color: #000;
-          color: #fff;
-        }
-      }
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    button{
+      cursor: pointer;
+    }
+    .material-icons{
+      font-size: 48px;
+      color: #fff;
     }
   }
 }

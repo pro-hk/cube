@@ -33,12 +33,15 @@ img {
   background-color: #fff;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   #logo {
-    position: absolute;
-    height: 50px;
-    padding: 10px 20px;
-    img {
-      height: 30px;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+    strong{
+      font-weight: 700;
     }
   }
   #gnb {
