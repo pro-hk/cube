@@ -1,0 +1,70 @@
+@import "vars";
+@import "mixins";
+
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  .scene {
+    width: 1200px;
+    height: 550px;
+    perspective: 1000px;
+    .carousel {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      // transform: rotateX(45deg) rotateY(45deg);
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+        color: #fff;
+        font-size: 36px;
+        font-weight: 700;
+        opacity: 0.5;
+        &:nth-child(10n+1){transform: rotateY(0) translateZ(2240px); background-color: #f00;}
+        &:nth-child(10n+2){transform: rotateY(360 / 12 * 1deg) translateZ(2240px);background-color: #ff0;}
+        &:nth-child(10n+3){transform: rotateY(360 / 12 * 2deg) translateZ(2240px);background-color: #0f0;}
+        &:nth-child(10n+4){transform: rotateY(360 / 12 * 3deg) translateZ(2240px);background-color: #0ff;}
+        &:nth-child(10n+5){transform: rotateY(360 / 12 * 4deg) translateZ(2240px);background-color: #f0f;}
+        &:nth-child(10n+6){transform: rotateY(360 / 12 * 5deg) translateZ(2240px);background-color: #00f;}
+        &:nth-child(10n+7){transform: rotateY(360 / 12 * 6deg) translateZ(2240px);background-color: #a00;}
+        &:nth-child(10n+8){transform: rotateY(360 / 12 * 7deg) translateZ(2240px);background-color: #aa0;}
+        &:nth-child(10n+9){transform: rotateY(360 / 12 * 8deg) translateZ(2240px);background-color: #0a0;}
+        &:nth-child(10n+10){transform: rotateY(360 / 12 * 9deg) translateZ(2240px);background-color: #0aa;}
+      }
+    }
+  }
+  .pagination{
+    position: absolute;
+    bottom:50px;
+    width: 100%;
+    ul{
+      display: flex;
+      justify-content: center;
+      li{
+        width: 30px;
+        height: 30px;
+        border: 2px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        margin: 0 2px;
+        cursor: pointer;
+        transition: 0.25s;
+        &.on{
+          background-color: #000;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

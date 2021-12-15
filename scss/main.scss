@@ -1,0 +1,65 @@
+@import "vars";
+@import "mixins";
+$cube-width:400px;
+
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  .scene {
+    width: $cube-width;
+    height: $cube-width;
+    perspective: 1000px;
+    .cube {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      // transform: rotateX(45deg) rotateY(45deg);
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 700;
+        &.right{transform: rotateY(90deg) translateZ($cube-width / 2); background-color: #f00;}
+        &.left{transform: rotateY(-90deg) translateZ($cube-width / 2); background-color: #ff0;}
+        &.top{transform: rotateX(90deg) translateZ($cube-width / 2); background-color: #f0f;}
+        &.bottom{transform: rotateX(-90deg) translateZ($cube-width / 2); background-color: #0f0;}
+        &.front{transform: rotateY(0deg) translateZ($cube-width / 2); background-color: #0ff;}
+        &.back{transform: rotateY(180deg) translateZ($cube-width / 2); background-color: #00f;}
+      }
+    }
+  }
+  .pagination{
+    position: absolute;
+    bottom:50px;
+    width: 100%;
+    ul{
+      display: flex;
+      justify-content: center;
+      li{
+        width: 30px;
+        height: 30px;
+        border: 2px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        margin: 0 2px;
+        cursor: pointer;
+        transition: 0.25s;
+        &.on{
+          background-color: #000;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
