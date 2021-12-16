@@ -30,11 +30,6 @@ const famousList = [
 
 cubeTotal = 60;
 
-makeCube();
-showTxt(0);
-makePaginationItem();
-clickPaginationItem();
-
 const rotationArray = [
   { tx: 0, ty: 0 },
   { tx: 0, ty: -90 },
@@ -93,6 +88,7 @@ function makePaginationItem() {
 
 function clickPaginationItem() {
   paginationUl.on("click", "li", function () {
+    autoNum = $(this).index();
     if ($(this).hasClass("on")) return;
     $(this).addClass("on").siblings("li").removeClass("on");
     random = Math.floor(Math.random() * 6);
@@ -123,3 +119,59 @@ $.each(famousList, function (idx, item) {
 });
 console.log(cubeTotal);
 */
+
+function autoAndPause() {
+  let clearId;
+  $(".auto").on("click", function () {
+    $(this).hide().siblings(".pause").show().css({ display: "flex" });
+    // display: block or inline-block
+    // autoPlay();
+    paginationUl.addClass("off");
+    clearId = setInterval(autoPlay02, 3000);
+    // 3초 뒤에 자동으로 플레이
+  });
+  $(".pause").on("click", function () {
+    $(this).hide().siblings(".auto").show().css({ display: "flex" });
+    // display: block or inline-block
+    paginationUl.removeClass("off");
+    clearInterval(clearId);
+  });
+}
+
+let autoNum = 0;
+
+function autoPlay() {
+  const total = famousList.length;
+  autoNum++;
+  autoNum = autoNum % total;
+  random = Math.floor(Math.random() * 6);
+  $(".pagination li").eq(autoNum).addClass("on").siblings("li").removeClass("on");
+  if (random === oldrandom) {
+    random = (random + 1) % 6;
+  }
+  showTxt(autoNum);
+  gsap.to("#cubeBox .scene .cube", {
+    rotateY: rotationArray[random].ty,
+    rotateX: rotationArray[random].tx,
+    z: -40,
+    ease: "back.inOut",
+    stagger: {
+      from: "random",
+      each: 0.01,
+    },
+  });
+  oldrandom = random;
+}
+
+function autoPlay02() {
+  const total = famousList.length;
+  autoNum++;
+  autoNum = autoNum % total;
+  $(".pagination li").eq(autoNum).trigger("click");
+}
+
+makeCube();
+showTxt(0);
+makePaginationItem();
+clickPaginationItem();
+autoAndPause();
